@@ -89,12 +89,12 @@ class HttpRequestParser {
     }
 
     let protocolAndUrl = utils.splitIntoTwoParts(methodUrlProtocolVer[1], '://');
-    if (!protocolAndUrl) {
+    /*if (!protocolAndUrl) {
       throw new InvalidMessageError(
         'Url in header must have format: [Protocol]://[Address]',
         methodUrlProtocolVer[1]
       );
-    }
+    }*/
 
     return {
       method: methodUrlProtocolVer[0].toUpperCase(),
