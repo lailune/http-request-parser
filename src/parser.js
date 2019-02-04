@@ -88,18 +88,12 @@ class HttpRequestParser {
       throw new InvalidMessageError('Header must have format: [Method] [Url] [Protocol]', line);
     }
 
-    let protocolAndUrl = utils.splitIntoTwoParts(methodUrlProtocolVer[1], '://');
-    /*if (!protocolAndUrl) {
-      throw new InvalidMessageError(
-        'Url in header must have format: [Protocol]://[Address]',
-        methodUrlProtocolVer[1]
-      );
-    }*/
+    let protocolAndUrl = methodUrlProtocolVer[1]//utils.splitIntoTwoParts(methodUrlProtocolVer[1], '://');
 
     return {
       method: methodUrlProtocolVer[0].toUpperCase(),
-      protocol: protocolAndUrl[0].toUpperCase(),
-      url: protocolAndUrl[1].toLowerCase(),
+      //protocol: protocolAndUrl[0].toUpperCase(),
+      url: protocolAndUrl.toLowerCase(),
       protocolVersion: methodUrlProtocolVer[2].toUpperCase()
     };
   }
